@@ -1,5 +1,7 @@
 from django.views.generic import ListView, DetailView
+
 from .models import Post, Comment
+from .filters import PostFilter
 
 
 class PostListView(ListView):
@@ -8,6 +10,11 @@ class PostListView(ListView):
     context_object_name = 'posts'
     ordering = ['-created_at']
     paginate_by = 2
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = PostFilter(self.request.GET, queryset=self.get_queryset())
+        return context
 
 
 class PostDetailView(DetailView):
@@ -20,4 +27,3 @@ class PostDetailView(DetailView):
         context = super().get_context_data(**kwargs)
 
         return context
-
