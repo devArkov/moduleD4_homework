@@ -1,0 +1,35 @@
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="inner-heading">
+                    {% url 'home' as home_url %}
+                    {% if request.path != home_url %}
+                        <ul class="breadcrumb">
+                            <li><a href="/">Home</a> <i class="icon-angle-right"></i></li>
+                            {% url 'about' as about_url %}
+                                {% if request.path == about_url %}
+                                    <li class="active">About</li>
+                                {% endif %}
+                            {% url 'contact' as contact_url %}
+                                {% if request.path == contact_url %}
+                                    <li class="active">Contact</li>
+                                {% endif %}
+
+                            {% url 'news' as news_url %}
+                                {% if request.path == news_url %}
+                                    <li class="active">Новости</li>
+                                {% endif %}
+                            {% url 'news/<pk>' as post_url %}
+                                {% if request.path == post_url %}
+                                    <li class="active">Новость</li>
+                                {% endif %}
+                        </ul>
+                    {% else %}
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
