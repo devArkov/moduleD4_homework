@@ -1,0 +1,87 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %} Contact {% endblock title %}
+
+{% block content %}
+    {% include 'pages/inc/topbar.html' %}
+
+    {% include 'pages/inc/headline.html' %}
+
+
+    <section id="inner-headline">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <div class="inner-heading">
+              <h2>Добавить статью</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="content">
+
+      <div class="container">
+        <div class="row">
+          <div class="span8">
+<!--            <h4>Для добавления статьи напишите заголовок, текст и категорию</h4>-->
+
+            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="errormessage"></div>
+<!--            <form action="" method="post" role="form" class="contactForm">-->
+<!--              <div class="row">-->
+<!--                  {{ form_non_field.errors }}-->
+<!--                <div class="span8 form-group field">-->
+<!--                  <label for="{{ form.title.id_for_label }}">Заголовок</label>-->
+<!--                    {{ form.title }}-->
+<!--&lt;!&ndash;                  <input type="text" name="title" id="title" placeholder="Заголовок" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />&ndash;&gt;-->
+<!--                  <div class="validation">{{ form.title.errors }}</div>-->
+<!--                </div>-->
+
+<!--                <div class="span6 form-group">-->
+<!--                    <select name="category" id="category">-->
+<!--                        {% for category in categories %}-->
+<!--                            <option value="{{ category.id }}">{{ category.title }}</option>-->
+<!--                        {% endfor %}-->
+<!--                    </select>-->
+<!--                    <div class="validation">{{ form.category.errors }}</div>-->
+<!--                </div>-->
+
+<!--                <div class="span6 form-group">-->
+<!--                    <select name="category" id="type">-->
+<!--                            <option value="Статья">Статья</option>-->
+<!--                            <option value="Новость">Новость</option>-->
+<!--                    </select>-->
+<!--                    <div class="validation">{{ form.type.errors }}</div>-->
+<!--                </div>-->
+
+<!--                <div class="span8 form-group">-->
+<!--                  <textarea name="text" rows="5" data-rule="required" placeholder="Текст статьи"></textarea>-->
+<!--                  <div class="validation">{{ form.type.errors }}</div>-->
+<!--                  <div class="text-center">-->
+<!--                    <button class="btn btn-theme btn-medium margintop10" type="submit">Опубликовать статью</button>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </form>-->
+
+              <form action="" method="post" role="form" class="contactForm">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+
+                  <div class="text-center">
+                    <button class="btn btn-theme btn-medium margintop10" type="submit">Опубликовать статью</button>
+                  </div>
+              </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+{% endblock content %}

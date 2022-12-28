@@ -2769,3 +2769,9 @@ ul.the-icons {
 }
 
 /* Theme Styler :: End */
+
+/* Custom styles */
+
+.errorlist {
+    color: red;
+}
